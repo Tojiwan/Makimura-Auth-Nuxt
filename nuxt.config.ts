@@ -7,9 +7,10 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxtjs/google-fonts',
     '@vesp/nuxt-fontawesome',
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
+    'nuxt-vuefire'
   ],
-  css:["~/assets/css/main.css"],
+  css: ["~/assets/css/main.css"],
   googleFonts: {
     families: {
       'League+Spartan': true,
@@ -20,23 +21,38 @@ export default defineNuxtConfig({
     inject: true,
   },
   components: [
-    { 
-      path: '~/components', 
-      pathPrefix: false, 
-      global: true 
+    {
+      path: '~/components',
+      pathPrefix: false,
+      global: true
     },
   ],
-  fontawesome:{
-    icons:{
-      solid:[
+  fontawesome: {
+    icons: {
+      solid: [
 
       ],
-      regular:[
+      regular: [
 
       ],
-      brands:[
+      brands: [
 
       ]
+    }
+  },
+  vuefire: {
+    auth:{
+      enabled:true,
+      sessionCookie:true
+    },
+    config: {
+      apiKey:process.env.apiKey,
+      authDomain:process.env.authDomain,
+      projectId:process.env.projectId,
+      storageBucket:process.env.storageBucket,
+      messagingSenderId:process.env.messagingSenderId,
+      appId:process.env.appId,
+      measurementId:process.env.measurementId,
     }
   }
 })
