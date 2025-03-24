@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@vesp/nuxt-fontawesome',
     '@vueuse/nuxt'
   ],
+  css:["~/assets/css/main.css"],
   googleFonts: {
     families: {
       'League+Spartan': true,
@@ -34,7 +35,7 @@ export default defineNuxtConfig({
 
       ],
       brands:[
-        
+
       ]
     }
   }
