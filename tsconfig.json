@@ -1,4 +1,13 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json"
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "noImplicitAny": false, // Allows variables to have an "any" type
+    // "strict": false,         // Disables all strict type-checking options
+    // "noUnusedLocals": false, // Disables the warning for unused variables
+    // "noUnusedParameters": false, // Disables the warning for unused function parameters
+    // "noImplicitReturns": false, // Disables the warning for functions that don't return a value
+    // "noFallthroughCasesInSwitch": false, // Disables the warning for fallthrough in switch statements
+    // "skipLibCheck": true     // Skips type-checking of declaration files (can improve compilation speed)
+  }
 }

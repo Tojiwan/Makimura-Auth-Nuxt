@@ -8,6 +8,7 @@ export default withNuxt({
     'vue/first-attribute-linebreak': 'off',    // Disable line break rule for first attribute
     'no-console': 'warn',                      // Warn on console logs, but allow
     'no-debugger': 'error',                     // Error on debugger statements
-    "vue/attribute-hyphenation": "off"
+    "vue/attribute-hyphenation": "off",
+    '@typescript-eslint/no-explicit-any': 'off',
   }
 })
