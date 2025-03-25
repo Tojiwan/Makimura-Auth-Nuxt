@@ -17,7 +17,7 @@
 				<div>
 					<div class="flex items-center justify-between">
 						<label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-						<NuxtLink to="/" class="text-sm font-medium text-black hover:text-[--green-color]">Forgot
+						<NuxtLink to="/" class="text-sm font-medium text-black hover:text-main">Forgot
 							password?</NuxtLink>
 					</div>
 					<input type="password" name="password" id="password" autocomplete="current-password" required
@@ -37,7 +37,7 @@
 
 			<p class="mt-4 text-center text-sm text-gray-600 font-spartan">
 				Not a member?
-				<NuxtLink to="/register" class="font-medium text-black hover:text-[--green-color]">Register Here!</NuxtLink>
+				<NuxtLink to="/register" class="font-medium text-black hover:text-main">Register Here!</NuxtLink>
 			</p>
 		</div>
 	</div>

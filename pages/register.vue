@@ -46,7 +46,7 @@
 
 			<p class="mt-4 text-center text-sm text-gray-600 font-spartan">
 				Already have an account?
-				<NuxtLink to="/" class="font-medium text-black hover:text-[--green-color]">Sign in here!</NuxtLink>
+				<NuxtLink to="/" class="font-medium text-black hover:text-main">Sign in here!</NuxtLink>
 			</p>
 		</div>
 	</div>
