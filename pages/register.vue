@@ -1,5 +1,5 @@
 <template>
-	<div class="flex min-h-screen items-center justify-center bg-gray-100 px-4">
+	<div class="flex min-h-screen items-center justify-center px-4">
 		<div class="w-full max-w-md rounded-lg bg-white p-6 shadow-lg">
 			<div class="flex justify-center">
 				<img class="h-10 w-auto" src="/public/favicon.ico" alt="Your Company">
