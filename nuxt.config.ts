@@ -10,6 +10,13 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-vuefire'
   ],
+  runtimeConfig: {
+    public: {
+      appName: process.env.NUXT_APP_NAME || 'Makimura Ramen',
+      appUrl: process.env.NUXT_APP_URL || 'http://127.0.0.1:1173',
+      apiUrl: process.env.NUXT_API_URL || 'http://localhost:8888',
+    }
+  },
   css: ["~/assets/css/main.css"],
   googleFonts: {
     families: {
@@ -41,18 +48,18 @@ export default defineNuxtConfig({
     }
   },
   vuefire: {
-    auth:{
-      enabled:true,
-      sessionCookie:true
+    auth: {
+      enabled: true,
+      sessionCookie: true
     },
     config: {
-      apiKey:process.env.apiKey,
-      authDomain:process.env.authDomain,
-      projectId:process.env.projectId,
-      storageBucket:process.env.storageBucket,
-      messagingSenderId:process.env.messagingSenderId,
-      appId:process.env.appId,
-      measurementId:process.env.measurementId,
+      apiKey: process.env.apiKey,
+      authDomain: process.env.authDomain,
+      projectId: process.env.projectId,
+      storageBucket: process.env.storageBucket,
+      messagingSenderId: process.env.messagingSenderId,
+      appId: process.env.appId,
+      measurementId: process.env.measurementId,
     }
   }
 })
