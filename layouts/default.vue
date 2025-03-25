@@ -1,6 +1,6 @@
 <template>
-    <div>
-
+    <div class="py-8 bg-gray-100">
+        <NuxtPage />
     </div>
 </template>
 
