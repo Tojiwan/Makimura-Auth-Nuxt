@@ -26,7 +26,7 @@
 				</div>
 
 				<button
-					class="w-full relative px-6 py-3 rounded-md text-[14px] font-medium leading-[1.5] inline-flex items-center justify-center transition-all duration-500 text-white bg-[#00b14f] hover:bg-[#00873d] overflow-hidden group"
+					class="w-full relative px-6 py-3 rounded-md text-[14px] font-medium leading-[1.5] inline-flex items-center justify-center transition-all duration-500 text-white bg-main hover:bg-[#00873d] overflow-hidden group"
 					type="submit" name="btnPlaceOrder">
 					<span
 						class="relative z-10 transition-all duration-300 group-hover:-translate-x-5 group-hover:opacity-0 font-bold font-spartan">Sign In</span>
