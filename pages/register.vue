@@ -1,58 +1,65 @@
+<script setup lang="ts">
+import { ref } from "vue";
+import { useAuth } from "~/composables/useAuth";
+import { useRouter } from "vue-router";
+
+const email = ref("");
+const password = ref("");
+const confirmPassword = ref("");
+const { register } = useAuth();
+const router = useRouter();
+
+const handleRegister = async () => {
+  if (password.value !== confirmPassword.value) {
+    alert("Passwords do not match");
+    return;
+  }
+
+  try {
+    await register(email.value, password.value);
+    router.push("/login"); // Redirect after registration
+  } catch (error: any) {
+    alert(error.message);
+  }
+};
+</script>
+
 <template>
 	<div class="flex min-h-screen items-center justify-center px-4">
 		<div class="w-full max-w-md rounded-lg bg-white p-6 shadow-lg">
 			<div class="flex justify-center">
-				<img class="h-10 w-auto" src="/public/favicon.ico" alt="Your Company">
+				<img class="h-10 w-auto" src="/logo.jpg" alt="Your Company">
 			</div>
 			<h2 class="mt-6 text-center text-2xl font-bold text-black font-bebas">Create an Account</h2>
 
-			<form class="mt-6 space-y-4" action="#" method="POST">
+			<form class="mt-6 space-y-4" @submit.prevent="handleRegister">
 				<div>
-					<label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-					<input type="text" name="name" id="name" required placeholder="John Doe"
-						class="mt-1 w-full border border-gray-300 px-3 py-3 text-[15px] font-normal text-black transition-all duration-300 ease-in-out bg-white focus:border-[#00b14f] focus:ring-[#00b14f] outline-none placeholder-[#666] rounded-[6px]">
+					<label class="block text-sm font-medium text-gray-700">Email address</label>
+					<input v-model="email" type="email" required
+						class="mt-1 w-full border border-gray-300 px-3 py-3 rounded-[6px]">
 				</div>
 
 				<div>
-					<label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
-					<input type="email" name="email" id="email" autocomplete="email" required
-						placeholder="johndoe@gmail.com"
-						class="mt-1 w-full border border-gray-300 px-3 py-3 text-[15px] font-normal text-black transition-all duration-300 ease-in-out bg-white focus:border-[#00b14f] focus:ring-[#00b14f] outline-none placeholder-[#666] rounded-[6px]">
+					<label class="block text-sm font-medium text-gray-700">Password</label>
+					<input v-model="password" type="password" required
+						class="mt-1 w-full border border-gray-300 px-3 py-3 rounded-[6px]">
 				</div>
 
 				<div>
-					<label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-					<input type="password" name="password" id="password" autocomplete="new-password" required
-						placeholder="......."
-						class="mt-1 w-full border border-gray-300 px-3 py-3 text-[15px] font-normal text-black transition-all duration-300 ease-in-out bg-white focus:border-[#00b14f] focus:ring-[#00b14f] outline-none placeholder-[#666] rounded-[6px]">
+					<label class="block text-sm font-medium text-gray-700">Confirm Password</label>
+					<input v-model="confirmPassword" type="password" required
+						class="mt-1 w-full border border-gray-300 px-3 py-3 rounded-[6px]">
 				</div>
 
-				<div>
-					<label for="cpass" class="block text-sm font-medium text-gray-700">Confirm
-						Password</label>
-					<input type="password" name="cpass" id="cpass" required placeholder="......."
-						class="mt-1 w-full border border-gray-300 px-3 py-3 text-[15px] font-normal text-black transition-all duration-300 ease-in-out bg-white focus:border-[#00b14f] focus:ring-[#00b14f] outline-none placeholder-[#666] rounded-[6px]">
-				</div>
-
-				<button
-					class="w-full relative px-6 py-3 rounded-md text-[14px] font-medium leading-[1.5] inline-flex items-center justify-center transition-all duration-500 text-white bg-main hover:bg-[#00873d] overflow-hidden group"
-					type="submit">
-					<span
-						class="relative z-10 transition-all duration-300 group-hover:-translate-x-5 group-hover:opacity-0 font-bold font-spartan">Register</span>
-					<span
-						class="absolute inset-0 flex items-center justify-center text-white w-full translate-x-full transition-all duration-300 group-hover:translate-x-0 font-bold font-spartan">Register</span>
+				<button class="w-full px-6 py-3 text-white bg-main rounded-md" type="submit">
+					Register
 				</button>
 			</form>
 
-			<p class="mt-4 text-center text-sm text-gray-600 font-spartan">
+			<p class="mt-4 text-center text-sm text-gray-600">
 				Already have an account?
-				<NuxtLink to="/" class="font-medium text-black hover:text-main">Sign in here!</NuxtLink>
+				<NuxtLink to="/login" class="text-black">Sign in here!</NuxtLink>
 			</p>
 		</div>
 	</div>
 </template>
-
-<script setup>
-</script>
-
-<style scoped></style>
