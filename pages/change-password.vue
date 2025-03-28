@@ -3,7 +3,7 @@ import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useAuth } from "~/composables/useAuth";
 
-const { confirmPasswordReset } = useAuth();
+const { confirmPassword } = useAuth();
 const route = useRoute();
 const router = useRouter();
 
@@ -12,17 +12,22 @@ const message = ref("");
 const oobCode = ref("");
 
 onMounted(() => {
-  oobCode.value = route.query.oobCode;
+  console.log("Full route query:", route.query); // Debugging: Check the full query params
+
+  oobCode.value = route.query.oobCode || ""; // Ensure it's not undefined
+  console.log("oobCode received:", oobCode.value);
+
   if (!oobCode.value) {
     message.value = "Invalid or expired reset link.";
   }
 });
 
+
 const resetPassword = async () => {
   if (!oobCode.value) return;
 
   try {
-    await confirmPasswordReset(oobCode.value, newPassword.value);
+    await confirmPassword(oobCode.value, newPassword.value);
     message.value = "Password successfully changed! Redirecting to login...";
     setTimeout(() => {
       router.push("/login");

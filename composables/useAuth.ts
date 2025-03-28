@@ -27,14 +27,15 @@ export function useAuth() {
 
   const resetPassword = async (email: string) => {
     if (!auth) throw new Error("Auth is not initialized");
+  
     const actionCodeSettings = {
-      url: `https://localhost:3000/reset-password`,
-      handleCodeInApp: true, // Ensures Firebase handles the code in your app
+      url: `http://localhost:3000/change-password?oobCode=PLACEHOLDER`,
+      handleCodeInApp: true, 
     };
-
+  
     await sendPasswordResetEmail(auth, email, actionCodeSettings);
   };
-
+  
   const confirmPassword = async (oobCode: string, newPassword: string) => {
     if (!auth) throw new Error ("Auth is not initialized");
     await confirmPasswordReset(auth, oobCode, newPassword);
