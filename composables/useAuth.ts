@@ -6,8 +6,9 @@ import {
   sendPasswordResetEmail,
   confirmPasswordReset,
 } from "firebase/auth";
-
 export function useAuth() {
+  const config = useRuntimeConfig()
+  const appUrl = config.public.appUrl
   const auth = useFirebaseAuth();
 
   const register = async (email: string, password: string) => {
@@ -29,7 +30,7 @@ export function useAuth() {
     if (!auth) throw new Error("Auth is not initialized");
   
     const actionCodeSettings = {
-      url: `http://localhost:3000/change-password?oobCode=PLACEHOLDER`,
+      url: `${appUrl}/change-password`,
       handleCodeInApp: true, 
     };
   

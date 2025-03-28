@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       appName: process.env.NUXT_APP_NAME || 'Makimura Ramen',
-      appUrl: process.env.NUXT_APP_URL || 'http://127.0.0.1:1173',
+      appUrl: process.env.NUXT_APP_URL || 'http://127.0.0.1:3000',
       apiUrl: process.env.NUXT_API_URL || 'http://localhost:8888',
     }
   },
